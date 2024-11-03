@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .container {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .container h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .container p {
+      font-size: 18px;
+      margin-top: 0;
+    }
+
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    figure {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin: 0;
+      max-width: 220px;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+      text-align: center;
+    }
+
+    figure:hover {
+      transform: scale(1.05);
+    }
+
+    figure img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    figcaption {
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .price {
+      font-size: 14px;
+      color: #888;
+      margin-top: 5px;
+    }
+
+    .add-to-cart {
+      margin-top: 10px;
+    }
+
+    .add-to-cart button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 4px 2px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .add-to-cart button:hover {
+      background-color: #45a049;
+    }
+
+    .cart {
+      margin-top: 30px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      background: #fff;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .cart h2 {
+      font-size: 24px;
+      margin-top: 0;
+    }
+
+    .cart ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .cart li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    .cart li img {
+      max-width: 50px;
+      margin-right: 10px;
+    }
+
+    .cart-total {
+      font-size: 20px;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .remove-from-cart button {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 4px 2px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .remove-from-cart button:hover {
+      background-color: #e53935;
+    }
+
+    .place-order button {
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .place-order button:hover {
+      background-color: #1976D2;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the Art Gallery</h1>
+    <p>Pick your choice</p>
+    <div class="images">
+      <figure>
+        <img src="image1.jpg" alt="Image 1">
+        <figcaption>Eyes that tell a story</figcaption>
+        <div class="price">$100</div>
+        <div class="add-to-cart">
+          <button onclick="addToCart('Eyes that tell a story', 100, 'image1.jpg')">Add to Cart</button>
+        </div>
+      </figure>
+      <figure>
+        <img src="image2.jpg" alt="Image 2">
+        <figcaption>Art brings a soul to life</figcaption>
+        <div class="price">$150</div>
+        <div class="add-to-cart">
+          <button onclick="addToCart('Art brings a soul to life', 150, 'image2.jpg')">Add to Cart</button>
+        </div>
+      </figure>
+      <figure>
+        <img src="image3.jpg" alt="Image 3">
+        <figcaption>Peace</figcaption>
+        <div class="price">$120</div>
+        <div class="add-to-cart">
+          <button onclick="addToCart('Peace', 120, 'image3.jpg')">Add to Cart</button>
+        </div>
+      </figure>
+      <figure>
+        <img src="image4.jpg" alt="Image 4">
+        <figcaption>The beauty of antiquity</figcaption>
+        <div class="price">$130</div>
+        <div class="add-to-cart">
+          <button onclick="addToCart('The beauty of antiquity', 130, 'image4.jpg')">Add to Cart</button>
+        </div>
+      </figure>
+      <figure>
+        <img src="image5.jpg" alt="Image 5">
+        <figcaption>Artistry that reflects the majesty of the divine</figcaption>
+        <div class="price">$200</div>
+        <div class="add-to-cart">
+          <button onclick="addToCart('Artistry that reflects the majesty of the divine', 200, 'image5.jpg')">Add to Cart</button>
+        </div>
+      </figure>
+      <figure>
+        <img src="image6.jpeg" alt="Image 6">
+        <figcaption>Beauty beyond words, expressed in art</figcaption>
+        <div class="price">$180</div>
+        <div class="add-to-cart">
+          <button onclick="addToCart('Beauty beyond words, expressed in art', 180, 'image6.jpeg')">Add to Cart</button>
+        </div>
+      </figure>
+      <figure>
+        <img src="image7.jpg" alt="Image 7">
+        <figcaption>The sky's the limit to your imagination.</figcaption>
+        <div class="price">$170</div>
+        <div class="add-to-cart">
+          <button onclick="addToCart('The sky\'s the limit to your imagination.', 170, 'image7.jpg')">Add to Cart</button>
+        </div>
+      </figure>
+      <figure>
+        <img src="image8.jpg" alt="Image 8">
+        <figcaption>Beauty beyond words, expressed in art</figcaption>
+        <div class="price">$140</div>
+        <div class="add-to-cart">
+          <button onclick="addToCart('Beauty beyond words, expressed in art', 140, 'image8.jpg')">Add to Cart</button>
+        </div>
+      </figure>
+      <figure>
+        <img src="image9.jpg" alt="Image 9">
+        <figcaption>The art of seeing the world through her eyes</figcaption>
+        <div class="price">$110</div>
+        <div class="add-to-cart">
+          <button onclick="addToCart('The art of seeing the world through her eyes', 110, 'image9.jpg')">Add to Cart</button>
+        </div>
+      </figure>
+      <figure>
+        <img src="image10.jpg" alt="Image 10">
+        <figcaption>The artistry of antiquity, preserved through the ages</figcaption>
+        <div class="price">$190</div>
+        <div class="add-to-cart">
+          <button onclick="addToCart('The artistry of antiquity, preserved through the ages', 190, 'image10.jpg')">Add to Cart</button>
+        </div>
+      </figure>
+    </div>
+  </div>
+  <div class="cart">
+    <h2>Cart</h2>
+    <ul id="cartItems"></ul>
+    <div class="cart-total" id="cartTotal"></div>
+    <div class="place-order">
+      <button onclick="placeOrder()">Place Order</button>
+    </div>
+  </div>
+
+  <script>
+    let cart = [];
+
+    function addToCart(title, price, imageUrl) {
+      const item = { title, price, imageUrl };
+      cart.push(item);
+      renderCart();
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      renderCart();
+    }
+
+    function renderCart() {
+      const cartItems = document.getElementById('cartItems');
+      cartItems.innerHTML = '';
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        const li = document.createElement('li');
+
+        const img = document.createElement('img');
+        img.src = item.imageUrl;
+        img.alt = item.title;
+
+        const text = document.createElement('span');
+        text.textContent = `${item.title} - $${item.price}`;
+
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Remove';
+        removeButton.onclick = () => removeFromCart(index);
+
+        const removeDiv = document.createElement('div');
+        removeDiv.className = 'remove-from-cart';
+        removeDiv.appendChild(removeButton);
+
+        li.appendChild(img);
+        li.appendChild(text);
+        li.appendChild(removeDiv);
+        cartItems.appendChild(li);
+
+        total += item.price;
+      });
+
+      document.getElementById('cartTotal').textContent = `Total: $${total}`;
+    }
+
+    function placeOrder() {
+      if (cart.length === 0) {
+        alert('Your cart is empty');
+      } else {
+        // Redirect to the place order page
+        window.location.href = 'place-order.html';
+      }
+    }
+  </script>
+</body>
+</html>

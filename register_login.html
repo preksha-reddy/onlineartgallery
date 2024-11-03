@@ -1,0 +1,33 @@
+
+<%@ include file="connection.jsp" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        
+        <%
+        
+        String user_id=request.getParameter("id");
+        String pswd=request.getParameter("Password");
+        String phone=request.getParameter("phone_number");
+        String e_mail=request.getParameter("Email");
+        PreparedStatement ps=con.prepareStatement("INSERT INTO registration VALUES(?,?,?,?)");
+        
+        ps.setString(1,user_id);
+        ps.setString(2,pswd);
+        ps.setString(3,phone);
+        ps.setString(4,e_mail);
+   
+        ps.executeUpdate();
+        out.println("inserted successfully");
+        %>
+      
+    </body>
+</html>
+

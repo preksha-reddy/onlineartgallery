@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    form {
+      width: 300px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    input[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
+    .success-message {
+      text-align: center;
+      color: green;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <form action="register.php" method="POST" id="registerForm">
+    <h2>Register</h2>
+    
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username" required><br>
+    
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br>
+    
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" required><br><br>
+    
+    <input type="submit" value="Register" name="reg_user">
+  </form>
+
+  <div class="success-message" style="display: none;">
+    Registered successfully!
+  </div>
+
+  <script>
+    document.querySelector('#registerForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      fetch('register.php', {
+        method: 'POST',
+        body: new FormData(this)
+      })
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('.success-message').style.display = 'block';
+        setTimeout(function() {
+          window.location.href = 'viewloves.html';
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>

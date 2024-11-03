@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .onebig {
+        position: relative;
+      }
+
+      .onebig img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .second {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+      }
+
+      .second h1 {
+        font-size: 60px;
+        margin-bottom: 10px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+
+      .second p {
+        font-size: 45px;
+        margin-top: 0;
+      }
+
+      /* Styles for sign-in and register options */
+      .signin-register {
+        position: absolute;
+        top: 20px; /* Adjust as needed */
+        right: 20px; /* Adjust as needed */
+        text-align: right;
+        color: white;
+        display: flex;
+        align-items: center;
+      }
+
+      .signin-register a {
+        margin-left: 20px; /* Add some space between the links */
+        text-decoration: none;
+        color: white;
+      }
+
+
+      /* Style for the "View Your Loves" link */
+      .view-loves {
+        font-size: 30px;
+        color: white;
+        text-decoration: none;
+        border: 2px solid white;
+        padding: 10px 20px;
+        display: inline-block;
+        margin-top: 5px;
+        font-family: Arial, sans-serif;
+      }
+
+      .view-loves:hover {
+        background-color: white;
+        color: black;
+        transition: 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="onebig">
+      <img src="fullimage.jpg" alt="Full Image" width="1520px" height="674px">
+      <div class="second">
+        <h1>Welcome to the Online Art Gallery!</h1>
+        <p>'To be an artist is to believe in life'</p>
+        <a href="viewloves.html" class="view-loves" target="_self">View Your Loves</a>
+      </div>
+    </div>
+    
+    <!-- Sign-in and Register options -->
+    <div class="signin-register">
+      <div class="sign-in-container">
+        <a href="signin.html" target="_self">Sign In</a>
+        
+      </div>
+      <a href="register.html" target="_self">Register</a>
+    </div>
+  </body>
+</html>

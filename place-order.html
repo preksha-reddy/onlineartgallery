@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .container {
+      text-align: center;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .container h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    .submit-button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+    }
+
+    .submit-button:hover {
+      background-color: #45a049;
+    }
+
+    .order-confirmation {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .order-confirmation h2 {
+      font-size: 20px;
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="orderContainer">
+    <h1>Enter Your Address</h1>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+    </div>
+    <div class="form-group">
+      <label for="address">Address:</label>
+      <input type="text" id="address" required>
+    </div>
+    <div class="form-group">
+      <label for="city">City:</label>
+      <input type="text" id="city" required>
+    </div>
+    <div class="form-group">
+      <label for="state">State:</label>
+      <input type="text" id="state" required>
+    </div>
+    <div class="form-group">
+      <label for="zip">ZIP Code:</label>
+      <input type="text" id="zip" required>
+    </div>
+    <button class="submit-button" onclick="confirmOrder()">Confirm Order</button>
+  </div>
+
+  <div class="order-confirmation" id="orderConfirmation" style="display:none;">
+    <h2>Order Confirmed!</h2>
+    <p>Thank you for your purchase. Your order will be shipped to:</p>
+    <p id="orderAddress"></p>
+  </div>
+
+  <script>
+    function confirmOrder() {
+      // Get the input values
+      const name = document.getElementById('name').value;
+      const address = document.getElementById('address').value;
+      const city = document.getElementById('city').value;
+      const state = document.getElementById('state').value;
+      const zip = document.getElementById('zip').value;
+
+      // Validate the form
+      if (!name || !address || !city || !state || !zip) {
+        alert('Please fill in all the fields');
+        return;
+      }
+
+      // Hide the form and show the confirmation
+      document.getElementById('orderContainer').style.display = 'none';
+      document.getElementById('orderConfirmation').style.display = 'block';
+
+      // Display the address
+      const orderAddress = `${name}, ${address}, ${city}, ${state}, ${zip}`;
+      document.getElementById('orderAddress').textContent = orderAddress;
+    }
+  </script>
+</body>
+</html>
